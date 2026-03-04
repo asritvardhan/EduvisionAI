@@ -1,0 +1,16 @@
+flask
+flask-cors
+pymongo
+rank-bm25
+numpy
+wikipedia
+wikipedia-api
+nltk
+python-dotenv
+google-generativeai
+TTS
+tensorflow
+opencv-python
+joblib
+openai-whisper
+gunicorn
