@@ -8,7 +8,7 @@ wikipedia-api
 nltk
 python-dotenv
 google-generativeai
-TTS
+TTS==0.22.0
 tensorflow
 opencv-python
 joblib
