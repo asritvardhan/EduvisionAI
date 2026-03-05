@@ -8,9 +8,8 @@ wikipedia-api
 nltk
 python-dotenv
 google-generativeai
-TTS==0.22.0
-tensorflow
-opencv-python
+tensorflow-cpu
+opencv-python-headless
 joblib
 openai-whisper
 gunicorn
