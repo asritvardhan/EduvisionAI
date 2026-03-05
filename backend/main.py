@@ -41,7 +41,7 @@ q_learning_db = db["q_learning_states"]
 # ------------------------- #
 try:
     import whisper
-    model = whisper.load_model("base.en")
+    model = whisper.load_model("tiny.en")
     WHISPER_AVAILABLE = True
     print("✅ Whisper model loaded")
 except Exception as e:
