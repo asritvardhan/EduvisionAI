@@ -807,17 +807,28 @@ def retrieve_content_full(query):
 # ===================================================================== #
 
 @app.route("/api/transcribe", methods=["POST"])
-def api_transcribe():
+def transcribe():
     try:
         if "audio" not in request.files:
             return jsonify({"error": "No audio file"}), 400
-        f = request.files["audio"]
-        with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as tmp:
-            f.save(tmp.name)
-            text = model.transcribe(tmp.name)["text"].strip()
+
+        file = request.files["audio"]
+
+        with tempfile.NamedTemporaryFile(delete=False, suffix=".webm") as tmp:
+            file.save(tmp.name)
+
+            result = whisper_model.transcribe(tmp.name)
+            text = result["text"]
+
         os.remove(tmp.name)
-        return jsonify({"success": True, "query": text})
+
+        return jsonify({
+            "success": True,
+            "query": text
+        })
+
     except Exception as e:
+        print("TRANSCRIBE ERROR:", e)
         return jsonify({"error": str(e)}), 500
 
 @app.route("/api/retrieve", methods=["POST"])
