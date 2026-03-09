@@ -56,7 +56,7 @@ import nltk
 nltk.download('punkt_tab', quiet=True)
 nltk.download('punkt', quiet=True)
 nltk.download('stopwords', quiet=True) 
-
+stop_words = set(stopwords.words('english'))
 def preprocess(text):
     return word_tokenize(text.lower())
 
