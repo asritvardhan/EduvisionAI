@@ -807,7 +807,7 @@ def retrieve_content_full(query):
 # ===================================================================== #
 
 @app.route("/api/transcribe", methods=["POST"])
-def transcribe():
+def api_transcribe():
     try:
         if "audio" not in request.files:
             return jsonify({"error": "No audio file"}), 400
@@ -817,7 +817,7 @@ def transcribe():
         with tempfile.NamedTemporaryFile(delete=False, suffix=".webm") as tmp:
             file.save(tmp.name)
 
-            result = whisper_model.transcribe(tmp.name)
+            result = model.transcribe(tmp.name)
             text = result["text"]
 
         os.remove(tmp.name)
