@@ -22,9 +22,11 @@ from bson import json_util
 # Flask Configuration
 # ------------------------- #
 app = Flask(__name__, static_folder="frontend/build", static_url_path="/")
-CORS(app, resources={
-    r"/api/*": {"origins": "https://eduvision-ai-eight.vercel.app"}
-})
+CORS(
+    app,
+    resources={r"/api/*": {"origins": "*"}},
+    supports_credentials=True
+)
 STATIC_DIR = "static"
 os.makedirs(STATIC_DIR, exist_ok=True)
 
