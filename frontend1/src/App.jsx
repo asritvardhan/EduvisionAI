@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 const API_URL =
   window.location.hostname === "localhost"
     ? "http://localhost:5000"
-    : "";
+    : "https://eduvisionai-production.up.railway.app";
 
 // Unique user ID (in real app, this would come from login)
 const USER_ID = `user_${Math.random().toString(36).substr(2, 9)}`;
