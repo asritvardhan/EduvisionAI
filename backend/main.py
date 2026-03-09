@@ -812,7 +812,7 @@ def api_transcribe():
         if "audio" not in request.files:
             return jsonify({"error": "No audio file"}), 400
         f = request.files["audio"]
-        with tempfile.NamedTemporaryFile(delete=False, suffix=".webm") as tmp:
+        with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as tmp:
             f.save(tmp.name)
             text = model.transcribe(tmp.name)["text"].strip()
         os.remove(tmp.name)
