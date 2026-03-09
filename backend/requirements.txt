@@ -8,8 +8,11 @@ wikipedia-api
 nltk
 python-dotenv
 google-generativeai
-tensorflow-cpu
+tensorflow-cpu==2.15.0
 opencv-python-headless
 joblib
 openai-whisper
 gunicorn
+
+torch==2.2.2+cpu
+--extra-index-url https://download.pytorch.org/whl/cpu
