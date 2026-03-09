@@ -33,7 +33,7 @@ os.makedirs(STATIC_DIR, exist_ok=True)
 # ------------------------- #
 # MongoDB Setup
 # ------------------------- #
-client = MongoClient("mongodb://localhost:27017/")
+client = MongoClient(os.getenv("MONGO_URI"))
 db = client["eduvision"]
 collection = db["learning_materials"]
 user_performance_db = db["user_performance"]
